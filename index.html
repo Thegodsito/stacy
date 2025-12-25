@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Stacy 🌟</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0c29;
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Partículas de fondo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Contenedor principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4em;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 5s ease infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes gradientText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #ddd;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Frase especial con efecto typewriter */
+        .quote-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 50px auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .quote-section .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .quote-text {
+            font-size: 1.5em;
+            font-style: italic;
+            line-height: 1.8;
+            color: #feca57;
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            font-size: 1.1em;
+            color: #aaa;
+        }
+
+        /* Navegación de secciones con tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: 2px solid #fff;
+        }
+
+        /* Contenido de tabs */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sección de recuerdos (timeline) */
+        .memories-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 30px 0;
+        }
+
+        .memories-section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #feca57;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #ff6b6b;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(10px);
+        }
+
+        .timeline-item h3 {
+            color: #feca57;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Galería de fotos (masonry style) */
+        .gallery {
+            column-count: 3;
+            column-gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(255, 107, 107, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Videos grid */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-card-info {
+            padding: 20px;
+        }
+
+        .video-card-info h3 {
+            color: #feca57;
+            margin-bottom: 10px;
+        }
+
+        .video-card-info p {
+            color: #ddd;
+            font-size: 0.95em;
+        }
+
+        /* Sección de música */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .music-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .music-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(254, 202, 87, 0.4);
+            border: 2px solid rgba(254, 202, 87, 0.3);
+        }
+
+        .music-item iframe {
+            width: 100%;
+            border: none;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .music-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .music-info h3 {
+            color: #feca57;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .music-info p {
+            color: #ddd;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Contador de días */
+        .counter-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .counter-section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #48dbfb;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .counter-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .counter-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #feca57;
+            display: block;
+        }
+
+        .counter-label {
+            font-size: 1em;
+            color: #ddd;
+            margin-top: 10px;
+        }
+
+        /* Mensajes aleatorios */
+        .random-message {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .random-message h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ff9ff3;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .message-text {
+            font-size: 1.3em;
+            color: #fff;
+            line-height: 1.6;
+            transition: all 0.4s ease;
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.6);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Placeholder messages */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #aaa;
+        }
+
+        .empty-state .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        .empty-state p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .gallery {
+                column-count: 2;
+            }
+
+            .tabs {
+                gap: 10px;
+            }
+
+            .tab {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                column-count: 1;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>✨ Stacy ✨</h1>
+            <p>Un espacio especial para celebrar nuestra amistad</p>
+        </div>
+
+        <!-- Frase Especial -->
+        <div class="quote-section">
+            <div class="icon">💫</div>
+            <div class="quote-text">
+                "La verdadera amistad no se trata del tiempo que llevamos conociéndonos, sino de los momentos que hacen que ese tiempo valga la pena."
+            </div>
+            <div class="quote-author">— Para ti, que haces cada momento especial</div>
+        </div>
+
+        <!-- Tabs de navegación -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('memories')">📝 Momentos</div>
+            <div class="tab" onclick="showTab('photos')">📸 Fotos</div>
+            <div class="tab" onclick="showTab('videos')">🎥 Videos</div>
+            <div class="tab" onclick="showTab('music')">🎵 Música</div>
+            <div class="tab" onclick="showTab('messages')">💌 Mensajes</div>
+        </div>
+
+        <!-- Tab: Momentos especiales -->
+        <div id="memories" class="tab-content active">
+            <div class="memories-section">
+                <h2>Momentos que Atesoro</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>🌟 El Comienzo</h3>
+                        <p>Conocerte fue como encontrar una pieza que no sabía que faltaba. Desde el primer momento, hubo una conexión genuina y especial.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>😄 Las Risas</h3>
+                        <p>Cada conversación contigo es una aventura. Tu sentido del humor y tu forma de ver la vida hacen que hasta los días ordinarios se vuelvan extraordinarios.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>🤝 La Confianza</h3>
+                        <p>Has demostrado ser alguien en quien puedo confiar. Tu apoyo y comprensión significan más de lo que las palabras pueden expresar.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>💙 Los Momentos</h3>
+                        <p>Cada instante compartido, cada palabra intercambiada, cada sonrisa... Todo se suma para crear algo hermoso llamado amistad.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>✨ Agradecimiento</h3>
+                        <p>Gracias por ser tú, por tu autenticidad, por tu amistad sincera. Esta página es solo una pequeña muestra de lo mucho que valoro tenerte en mi vida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Fotos -->
+        <div id="photos" class="tab-content">
+            <div class="memories-section">
+                <h2>Galería de Recuerdos</h2>
+                <div class="gallery" id="gallery">
+                    <!-- Las fotos se cargarán aquí -->
+                </div>
+                <div class="empty-state" id="photos-empty" style="display: none;">
+                    <div class="icon">📸</div>
+                    <h3>Galería en Construcción</h3>
+                    <p>Pronto esta sección se llenará con las fotos de nuestros momentos juntos.</p>
+                    <p style="margin-top: 10px;">Cada imagen contará una historia especial. 💙</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Videos -->
+        <div id="videos" class="tab-content">
+            <div class="memories-section">
+                <h2>Videos Especiales</h2>
+                <div class="videos-grid" id="videos-grid">
+                    <!-- Los videos se cargarán aquí -->
+                </div>
+                <div class="empty-state" id="videos-empty" style="display: none;">
+                    <div class="icon">🎥</div>
+                    <h3>Videos Próximamente</h3>
+                    <p>Esta sección guardará nuestros momentos en movimiento.</p>
+                    <p style="margin-top: 10px;">Cada video será un recuerdo que reviviremos mil veces. 🎬</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Música -->
+        <div id="music" class="tab-content">
+            <div class="memories-section">
+                <h2>Tu Música Favorita</h2>
+                <p style="text-align: center; color: #ddd; font-size: 1.1em; margin-bottom: 30px;">
+                    Las canciones que te definen y que me recuerdan a ti 🎶
+                </p>
+                <div class="music-grid" id="music-grid">
+                    <!-- Los iframes de música se cargarán aquí -->
+                </div>
+                <div class="empty-state" id="music-empty" style="display: none;">
+                    <div class="icon">🎵</div>
+                    <h3>Música Próximamente</h3>
+                    <p>Aquí iré agregando las canciones que me hacen pensar en ti.</p>
+                    <p style="margin-top: 10px;">Cada canción cuenta una historia. 🎶💙</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Mensajes aleatorios -->
+        <div id="messages" class="tab-content">
+            <div class="random-message">
+                <h2>Mensaje del Día</h2>
+                <div class="message-box">
+                    <p class="message-text" id="random-text">Haz clic en el botón para recibir un mensaje especial</p>
+                </div>
+                <button class="generate-btn" onclick="generateMessage()">✨ Nuevo Mensaje ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        // Crear partículas animadas
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Sistema de tabs
+        function showTab(tabName) {
+            // Ocultar todos los contenidos
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Desactivar todos los tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Activar el tab seleccionado
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Mensajes aleatorios
+        const messages = [
+            "Tu amistad es uno de los mejores regalos que he recibido. Gracias por ser tú. 💙",
+            "Cada vez que hablamos, mi día se vuelve automáticamente mejor. Tienes ese poder. ✨",
+            "No se necesitan años para construir algo especial. Contigo ha sido natural desde el inicio. 💫",
+            "Eres de esas personas que hacen que la vida sea más divertida y significativa. 🌟",
+            "Tu energía positiva es contagiosa. Gracias por compartirla conmigo. 😊",
+            "Has demostrado ser alguien especial e importante. Y eso es hermoso. 💜",
+            "Cada momento contigo es un recuerdo que quiero guardar para siempre. 📸",
+            "Tu autenticidad y tu forma de ser son inspiradoras. No cambies nunca. 🦋",
+            "Agradezco cada risa, cada conversación, cada momento compartido. Todo cuenta. 💝",
+            "Las mejores amistades son las que te hacen sentir como en casa. Tú eres así. 🌈",
+            "Gracias por escuchar, por entender, y por estar ahí cuando te necesito. 🤗",
+            "Tu sonrisa tiene el poder de iluminar hasta los días más grises. ☀️",
+            "Me hace feliz saber que puedo contar contigo, así como tú puedes contar conmigo. 🤝",
+            "A veces las mejores personas llegan cuando menos lo esperas. Como tú. 🎁",
+            "Valoro tu honestidad, tu humor, y todo lo que te hace única. 🌺"
+        ];
+
+        function generateMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            const messageElement = document.getElementById('random-text');
+            const button = document.querySelector('.generate-btn');
+            
+            // Deshabilitar botón temporalmente
+            button.disabled = true;
+            button.style.opacity = '0.6';
+            
+            // Efecto de fade
+            messageElement.style.opacity = 0;
+            messageElement.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                messageElement.textContent = messages[randomIndex];
+                messageElement.style.opacity = 1;
+                messageElement.style.transform = 'translateY(0)';
+                
+                // Reactivar botón
+                button.disabled = false;
+                button.style.opacity = '1';
+            }, 400);
+        }
+
+        // Cargar fotos
+        const photos = [
+            { src: 'fotos/foto1.jpg', caption: 'Un momento especial 💫' },
+            { src: 'fotos/foto2.jpg', caption: 'Recuerdos inolvidables 🌟' },
+            { src: 'fotos/foto3.jpg', caption: 'Momentos que brillan ✨' },
+            { src: 'fotos/foto4.jpg', caption: 'Risas compartidas 😄' },
+            { src: 'fotos/foto5.jpg', caption: 'Instantes mágicos 💙' },
+            { src: 'fotos/foto6.jpg', caption: 'Memorias preciosas 🌸' }
+        ];
+
+        const gallery = document.getElementById('gallery');
+        const photosEmpty = document.getElementById('photos-empty');
+        let photosExist = false;
+
+        photos.forEach((photo, index) => {
+            const img = new Image();
+            img.onload = function() {
+                photosExist = true;
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.onclick = () => openLightbox(photo.src);
+                item.innerHTML = `
+                    <img src="${photo.src}" alt="Foto ${index + 1}">
+                    <div class="gallery-overlay">
+                        <p>${photo.caption}</p>
+                    </div>
+                `;
+                gallery.appendChild(item);
+            };
+            img.onerror = function() {
+                if (!photosExist && index === photos.length - 1) {
+                    gallery.style.display = 'none';
+                    photosEmpty.style.display = 'block';
+                }
+            };
+            img.src = photo.src;
+        });
+
+        // Cargar videos
+        const videos = [
+            { src: 'videos/video1.mp4', title: 'Momento Especial 1', desc: 'Un recuerdo en movimiento 🎬' },
+            { src: 'videos/video2.mp4', title: 'Momento Especial 2', desc: 'Risas capturadas ✨' },
+            { src: 'videos/video3.mp4', title: 'Momento Especial 3', desc: 'Instantes memorables 💫' },
+            { src: 'videos/video4.mp4', title: 'Momento Especial 4', desc: 'Aventuras compartidas 🌟' },
+            { src: 'videos/video5.mp4', title: 'Momento Especial 5', desc: 'Recuerdos en acción 💙' }
+        ];
+
+        const videosGrid = document.getElementById('videos-grid');
+        const videosEmpty = document.getElementById('videos-empty');
+        let videosExist = false;
+
+        videos.forEach((video, index) => {
+            const videoEl = document.createElement('video');
+            videoEl.onloadedmetadata = function() {
+                videosExist = true;
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.innerHTML = `
+                    <video controls preload="metadata">
+                        <source src="${video.src}" type="video/mp4">
+                    </video>
+                    <div class="video-card-info">
+                        <h3>${video.title}</h3>
+                        <p>${video.desc}</p>
+                    </div>
+                `;
+                videosGrid.appendChild(card);
+            };
+            videoEl.onerror = function() {
+                if (!videosExist && index === videos.length - 1) {
+                    videosGrid.style.display = 'none';
+                    videosEmpty.style.display = 'block';
+                }
+            };
+            videoEl.src = video.src;
+        });
+
+        // Lightbox functions
+        function openLightbox(src) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar lightbox con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Cerrar al hacer clic fuera
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // Cargar música (iframes)
+        const musicItems = [
+            {
+                iframe: '<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5DdLSEyKh8zgCrJq2hFj92?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+                title: 'Canción 1',
+                description: 'Esta canción me recuerda a ti'
+            },
+            {
+                iframe: '<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7MVIfkyzuUmQ716j8U7yGR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+                title: 'Canción 2',
+                description: 'Tu estilo musical'
+            },
+            {
+                iframe: '<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6De0lHrwBfPfrhorm9q1Xl?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+                title: 'Canción 3',
+                description: 'Nuestro soundtrack'
+            }
+            // Puedes agregar más canciones aquí
+            // Solo copia el formato de arriba y pega el iframe de Spotify, YouTube, etc.
+        ];
+
+        const musicGrid = document.getElementById('music-grid');
+        const musicEmpty = document.getElementById('music-empty');
+
+        if (musicItems.length > 0) {
+            musicItems.forEach((item, index) => {
+                const musicCard = document.createElement('div');
+                musicCard.className = 'music-item';
+                musicCard.innerHTML = `
+                    ${item.iframe}
+                    <div class="music-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                musicGrid.appendChild(musicCard);
+            });
+        } else {
+            musicGrid.style.display = 'none';
+            musicEmpty.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
